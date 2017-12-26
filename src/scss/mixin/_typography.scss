@@ -1,0 +1,47 @@
+// =============================================
+// Mixin - Typography
+// =============================================
+
+@mixin title-1 {
+  margin: 0;
+  margin-bottom: 0.7em;
+  font-size: 4em;
+  font-weight: 200;
+  line-height: 1.2em;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+}
+
+@mixin title-2 {
+  margin: 0;
+  margin-bottom: 0.7em;
+  font-size: 3em;
+  font-weight: 200;
+  text-rendering: optimizeLegibility;
+}
+
+@mixin title-3 {
+  margin: 0;
+  margin-bottom: 0.7em;
+  font-size: 2.5em;
+  line-height: 1.2em;
+  text-rendering: optimizeLegibility;
+}
+
+@mixin title-4 {
+  margin: 0;
+  margin-bottom: 0.7em;
+  font-size: 1.5em;
+  font-weight: 200;
+  line-height: 1.2em;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+}
+
+@mixin title-5 {
+  margin: 0;
+  font-size: 1.4em;
+  font-weight: 200;
+  line-height: 1.75em;
+  text-rendering: optimizeLegibility;
+}
