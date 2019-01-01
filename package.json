@@ -38,6 +38,10 @@
     "uglify-js": "^3.4.9"
   },
   "dependencies": {
-    "event-stream": "^3.3.4"
+    "cached-path-relative": "^1.0.2",
+    "debug": "^4.1.1",
+    "event-stream": "^3.3.4",
+    "sshpk": "^1.16.0",
+    "tough-cookie": "^2.5.0"
   }
 }
