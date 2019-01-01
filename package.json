@@ -1,6 +1,6 @@
 {
   "name": "ez",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Customized npm script used as a slim front-end web development tool task runner comparable with Gulp or Grunt.",
   "main": "index.html",
   "scripts": {
