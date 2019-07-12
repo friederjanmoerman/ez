@@ -42,6 +42,7 @@
     "debug": "^4.1.1",
     "event-stream": "^3.3.4",
     "lodash": "^4.17.14",
+    "lodash.mergewith": "^4.6.2",
     "sshpk": "^1.16.0",
     "tough-cookie": "^2.5.0"
   }
