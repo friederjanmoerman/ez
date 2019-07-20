@@ -17,12 +17,6 @@
     "watch": "npm run watch:html & npm run watch:js & npm run watch:css",
     "start": "npm run build && npm run watch"
   },
-  "keywords": [
-    "indie",
-    "game",
-    "studio",
-    "belgium"
-  ],
   "author": "Frieder Jan Moerman @hardcodepunk",
   "license": "MIT",
   "devDependencies": {
