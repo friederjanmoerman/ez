@@ -7,7 +7,7 @@
     "lint": "eslint src/js/*.js",
     "autoprefixer": "postcss -u autoprefixer --autoprefixer.browsers '&gt; 5%, ie 9' -r dest/assets/css/*",
     "build:html": "cp src/*.html dest/",
-    "build:js": "browserify src/js/* | uglifyjs -mc > dest/assets/js/script.js",
+    "build:js": "cp src/js/* dest/assets/js/script.js",
     "build:css": "node-sass --output-style compressed src/scss/styles.scss -o dest/assets/css/ && npm run autoprefixer",
     "prebuild": "npm run lint",
     "build": "npm run build:html && npm run build:css && npm run build:js",
