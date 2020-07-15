@@ -35,7 +35,7 @@
     "cached-path-relative": "^1.0.2",
     "debug": "^4.1.1",
     "event-stream": "^3.3.5",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "lodash.mergewith": "^4.6.2",
     "sshpk": "^1.16.1",
     "tough-cookie": "^2.5.0"
