@@ -13,19 +13,6 @@ const logo = `
                       //_____||___*_________*___||_____//
 `
 
-const cli = require('../package.json').version
-const version = chalk.bold.red(`
-                                      /|\\
-                                    //   //
-                                  //       //
-                                //___*___*___//
-                              //--*---------*--//
-                            /|| *             * ||/
-                          // ||*    v${cli}     *|| //
-                        //   || *             * ||   //
-                      //_____||___*_________*___||_____//
-`)
-
 module.exports = require('yargs')
   .usage(
     `${chalk.bold.red(logo)}
@@ -37,70 +24,66 @@ Usage:
   $0 <input.css>... [OPTIONS] --replace`
   )
   .group(
-    ['o', 'd', 'r', 'map', 'no-map', 'verbose', 'watch', 'env'],
+    ['o', 'd', 'r', 'map', 'no-map', 'watch', 'verbose', 'env'],
     'Basic options:'
   )
   .option('o', {
     alias: 'output',
     desc: 'Output file',
     type: 'string',
-    conflicts: ['dir', 'replace']
+    conflicts: ['dir', 'replace'],
   })
   .option('d', {
     alias: 'dir',
     desc: 'Output directory',
     type: 'string',
-    conflicts: ['output', 'replace']
+    conflicts: ['output', 'replace'],
   })
   .option('r', {
     alias: 'replace',
     desc: 'Replace (overwrite) the input file',
     type: 'boolean',
-    conflicts: ['output', 'dir']
+    conflicts: ['output', 'dir'],
   })
-  .option('include-dotfiles', {
-    desc: 'Enables glob to match files/dirs that begin with "."',
-    type: 'boolean'
-  })
-  .alias('map', 'm')
+  .alias('m', 'map')
   .describe('map', 'Create an external sourcemap')
   .describe('no-map', 'Disable the default inline sourcemaps')
-  .option('verbose', {
-    desc: 'Be verbose',
-    type: 'boolean'
-  })
-  .option('watch', {
-    alias: 'w',
+  .option('w', {
+    alias: 'watch',
     desc: 'Watch files for changes and recompile as needed',
     type: 'boolean',
-    conflicts: 'replace'
+    conflicts: 'replace',
+  })
+  .option('verbose', {
+    desc: 'Be verbose',
+    type: 'boolean',
   })
   .option('env', {
     desc: 'A shortcut for setting NODE_ENV',
-    type: 'string'
+    type: 'string',
   })
   .group(
     ['u', 'parser', 'stringifier', 'syntax'],
-    'Options for when not using a config file:'
+    'Options for use without a config file:'
   )
   .option('u', {
     alias: 'use',
     desc: 'List of postcss plugins to use',
-    type: 'array'
+    type: 'array',
   })
   .option('parser', {
     desc: 'Custom postcss parser',
-    type: 'string'
+    type: 'string',
   })
   .option('stringifier', {
     desc: 'Custom postcss stringifier',
-    type: 'string'
+    type: 'string',
   })
   .option('syntax', {
     desc: 'Custom postcss syntax',
-    type: 'string'
+    type: 'string',
   })
-  .group(['ext', 'base', 'poll', 'config'], 'Advanced options:')
+  .group(['ext', 'base'], 'Options for use with --dir:')
   .option('ext', {
     desc: 'Override the output file extension; for use with --dir',
     type: 'string',
@@ -108,24 +91,28 @@ Usage:
     coerce(ext) {
       if (ext.indexOf('.') !== 0) return `.${ext}`
       return ext
-    }
+    },
   })
   .option('base', {
     desc:
       'Mirror the directory structure relative to this path in the output directory, for use with --dir',
     type: 'string',
-    implies: 'dir'
+    implies: 'dir',
+  })
+  .group(['include-dotfiles', 'poll', 'config'], 'Advanced options:')
+  .option('include-dotfiles', {
+    desc: 'Enable glob to match files/dirs that begin with "."',
+    type: 'boolean',
   })
   .option('poll', {
     desc:
       'Use polling for file watching. Can optionally pass polling interval; default 100 ms',
-    implies: 'watch'
+    implies: 'watch',
   })
   .option('config', {
     desc: 'Set a custom directory to look for a config file',
-    type: 'string'
+    type: 'string',
   })
-  .version(version)
   .alias('h', 'help')
   .example('$0 input.css -o output.css', 'Basic usage')
   .example('$0 src/**/*.css --base src --dir build', 'Glob Pattern & output')
