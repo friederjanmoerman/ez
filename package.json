@@ -32,7 +32,7 @@
     "uglify-js": "^3.6.0"
   },
   "dependencies": {
-    "cached-path-relative": "^1.0.2",
+    "cached-path-relative": "^1.1.0",
     "debug": "^4.1.1",
     "event-stream": "^3.3.5",
     "lodash": "^4.17.15",
